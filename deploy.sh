@@ -4,9 +4,9 @@
 set -e
 
 # Define variables
-BUILD_DIR="/tmp/agate/builds/latest"
-DEPLOY_DIR="/tmp/agate/releases"
-SYMLINK_PATH="/tmp/agate/current"
+BUILD_DIR="/home/ubuntu/deploy-artifacts/builds/latest"
+DEPLOY_DIR="/home/ubuntu/deploy-artifacts/releases"
+SYMLINK_PATH="/home/ubuntu/deploy-artifacts/current"
 TIMESTAMP=$(date +"%Y%m%d%H%M%S")
 RELEASE_DIR="$DEPLOY_DIR/release-$TIMESTAMP"
 
