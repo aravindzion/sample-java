@@ -31,8 +31,8 @@ jobs:
 
     - name: Copy build artifact
       run: |
-        mkdir -p /tmp/myapps
-        cp target/*.jar /tmp/myapps/app.jar
+        mkdir -p /tmp/agate/builds/latest
+        cp target/*.jar /tmp/agate/builds/latest/
 
     - name: Make deploy script executable
       run: chmod +x deploy.sh
