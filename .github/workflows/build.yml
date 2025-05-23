@@ -29,8 +29,13 @@ jobs:
     - name: Build with Maven
       run: mvn clean install
 
-    - name: Deploy to Local Path
+    - name: Copy build artifact
       run: |
-        mkdir -p /opt/myapps
-        cp target/*.jar /opt/myapps/
-        echo "Deployment done to /opt/myapps/"
+        mkdir -p /tmp/myapps
+        cp target/*.jar /tmp/myapps/app.jar
+
+    - name: Make deploy script executable
+      run: chmod +x deploy.sh
+
+    - name: Run deploy script
+      run: ./deploy.sh
