@@ -1,0 +1,26 @@
+name: Java without Code
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: self-hosted 
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Copy build artifact
+      run: |
+        BUILD_DIR=/home/ubuntu/deploy-artifacts1/builds/latest
+        mkdir -p $BUILD_DIR
+        echo "This is from simulated DAR package" > /home/ubuntu/deploy-artifacts1/builds/latest/agate_app.dar
+        
+    - name: Make deploy script executable
+      run: chmod +x deploy.sh
+
+    - name: Run deploy script
+      run: ./deploy.sh
