@@ -23,9 +23,6 @@ jobs:
     - name: Install Maven manually
       run: |
         MAVEN_VERSION=3.9.6
-        wget https://downloads.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz
-        tar -xzf apache-maven-${MAVEN_VERSION}-bin.tar.gz
-        sudo mv apache-maven-${MAVEN_VERSION} /opt/maven
         echo "M2_HOME=/opt/maven" >> $GITHUB_ENV
         echo "PATH=/opt/maven/bin:$PATH" >> $GITHUB_ENV
 
