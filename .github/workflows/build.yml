@@ -31,8 +31,9 @@ jobs:
 
     - name: Copy build artifact
       run: |
-        mkdir -p /home/ubuntu/deploy-artifacts/latest
-        cp target/*.jar /home/ubuntu/deploy-artifacts/latest/
+        BUILD_DIR=/home/ubuntu/deploy-artifacts/builds/latest
+        mkdir -p $BUILD_DIR
+        cp target/*.jar $BUILD_DIR/
 
     - name: Make deploy script executable
       run: chmod +x deploy.sh
