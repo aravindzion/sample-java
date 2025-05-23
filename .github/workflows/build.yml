@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: Java CI without Code
 
 on:
   push:
@@ -13,28 +13,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Set up JDK 17 and Maven
-      uses: actions/setup-java@v4
-      with:
-        distribution: temurin
-        java-version: 17
-        cache: maven
-        
-    - name: Install Maven manually
-      run: |
-        MAVEN_VERSION=3.9.6
-        echo "M2_HOME=/opt/maven" >> $GITHUB_ENV
-        echo "PATH=/opt/maven/bin:$PATH" >> $GITHUB_ENV
-
-    - name: Build with Maven
-      run: mvn clean install
-
     - name: Copy build artifact
       run: |
-        BUILD_DIR=/home/ubuntu/deploy-artifacts/builds/latest
+        BUILD_DIR=/home/ubuntu/deploy-artifacts1/builds/latest
         mkdir -p $BUILD_DIR
-        cp target/*.jar $BUILD_DIR/
-
+        echo "This is from simulated DAR package" > /home/ubuntu/deploy-artifacts1/builds/latest/agate_app.dar
+        
     - name: Make deploy script executable
       run: chmod +x deploy.sh
 
